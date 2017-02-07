@@ -9,7 +9,7 @@ a Bash script that, given a commit or a current working directory state, generat
 ## use case
 
 ```sh
-git config alias.autocommit '!git commit -a -m "$(git slum)"'
+git config alias.autocommit '!git add -A && git commit -m "$(git slum)"'
 ```
 
 also: using this with rebase to make your commit messages only as bad as they would have been via GitHub instead of "asdf stuff"
