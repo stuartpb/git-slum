@@ -13,3 +13,7 @@ git config alias.autocommit '!git add -A && git commit -m "$(git-slum)"'
 ```
 
 also: using this with rebase to make your commit messages only as bad as they would have been via GitHub instead of "asdf stuff"
+
+## TODO: get this integrated into Git as an option to `git status` and/or describe or log or whatever
+
+the `--slum` option stands for Single Line Update Message, and describes the status in a single line.
