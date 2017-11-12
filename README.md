@@ -30,7 +30,7 @@ x git commit --amend -m "$(git-slum HEAD^ HEAD)"
 pick fb77b6cf301971fca1b841b3744ee85e9b37a736 Crib from https://xkcd.com/1296/
 ```
 
-(That said, commits like these are generally better squashed away altogether - you may want to take a look at the [`--squash` and `--fixup` options to `git commit`](https://git-scm.com/docs/git-commit#git-commit---fixupltcommitgt).
+(That said, commits like these are generally better squashed away altogether - you may want to take a look at the [`--squash` and `--fixup` options to `git commit`](https://git-scm.com/docs/git-commit#git-commit---fixupltcommitgt).)
 
 ## FAQ
 
