@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: debian:stretch
+    steps:
+      - add-ssh-keys:
+          fingerprints: 
+          - '56:76:54:43:c3:70:31:03:b5:ff:20:89:43:af:a2:48'
+      - checkout
+      - run:
+          name: Create slummed mirror of this branch
+          command: git branch slummed/$CIRCLE_BRANCH && git filter-branch --commit-filter ./git-slum.sh slummed/$CIRCLE_BRANCH
+      - run:
+          name: Push the slummed version of the branch
+          command: git push -f origin slummed/$CIRCLE_BRANCH
