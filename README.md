@@ -9,7 +9,7 @@ The script as written depends on more than a few Bash-4-isms: to use it in an en
 ### Add an autocommit command to Git
 
 ```sh
-git config alias.autocommit '!git add -A && git commit -m "$(git-slum --staged)"'
+git config alias.autocommit '!git commit -am "$(git-slum HEAD)"'
 ```
 
 ### Cleaning up ugly commits
