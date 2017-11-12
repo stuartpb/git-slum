@@ -1,10 +1,6 @@
-# git-slum
+# git-slum: slightly less unhelpful message
 
-slightly less unhelpful message
-
-## the idea
-
-a Bash script that, given a commit or a current working directory state, generates a commit message that basically just rephrases the output of `git diff --name-status`, the way the default commit messages on GitHub work.
+`git-slum` is a Bash script that takes the output of `git diff --name-status` and converts it to a one-line summary of the file operations, akin to the default commit subjects provided when making changes on GitHub.
 
 ## Use cases
 
@@ -34,7 +30,7 @@ pick fb77b6cf301971fca1b841b3744ee85e9b37a736 Crib from https://xkcd.com/1296/
 
 (That said, commits like these are generally better squashed away altogether - you may want to take a look at the [`--squash` and `--fixup` options to `git commit`](https://git-scm.com/docs/git-commit#git-commit---fixupltcommitgt).
 
-## faq
+## FAQ
 
 ### Q: WOW!! This looks really helpful!!! Should I use this in all my projects everywhere I'm going to use it everywhere!!!!!!!
 
