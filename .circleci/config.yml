@@ -16,6 +16,8 @@ jobs:
           command: |
             if [[ -n "$CIRCLE_BRANCH" ]]; then
               git checkout -b "slummed/$CIRCLE_BRANCH"
-              git filter-branch --commit-filter "$PWD"'/git-slum.sh "$GIT_COMMIT" "$GIT_COMMIT^" || cat'
+              git filter-branch --msg-filter "$PWD"'/git-slum.sh \
+                "$(git rev-parse --verify -q "$GIT_COMMIT^" || \
+                  git hash-object -t tree /dev/null)" "$GIT_COMMIT"'
               git push -f origin "slummed/$CIRCLE_BRANCH"
             fi
