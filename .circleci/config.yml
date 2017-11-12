@@ -2,10 +2,10 @@ version: 2
 jobs:
   build:
     docker:
-      - image: debian:stretch
+      - image: alpine/git
     steps:
       - add-ssh-keys:
-          fingerprints: 
+          fingerprints:
           - '56:76:54:43:c3:70:31:03:b5:ff:20:89:43:af:a2:48'
       - checkout
       - run:
