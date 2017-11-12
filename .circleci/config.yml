@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: alpine/git
+    branches:
+      ignore:
+      - '/slummed\/.*/'
     steps:
       - add-ssh-keys:
           fingerprints:
@@ -10,7 +13,9 @@ jobs:
       - checkout
       - run:
           name: Create slummed mirror of this branch
-          command: git branch slummed/$CIRCLE_BRANCH && git filter-branch --commit-filter ./git-slum.sh slummed/$CIRCLE_BRANCH
-      - run:
-          name: Push the slummed version of the branch
-          command: git push -f origin slummed/$CIRCLE_BRANCH
+          command: |
+            if [[ -n "$CIRCLE_BRANCH" ]]; then
+              git branch "slummed/$CIRCLE_BRANCH"
+              git filter-branch --commit-filter "$PWD/git-slum.sh" "slummed/$CIRCLE_BRANCH"
+              git push -f origin "slummed/$CIRCLE_BRANCH"
+            fi
