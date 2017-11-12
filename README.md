@@ -2,6 +2,8 @@
 
 `git-slum` is a Bash script that takes the output of `git diff --name-status` and converts it to a one-line summary of the file operations, akin to the default commit subjects provided when making changes on GitHub.
 
+The script as written depends on more than a few Bash-4-isms: to use it in an environment with an older version of Bash (ie. macOS), you'll either need to rewrite this script, or install a newer version of Bash (eg. via MacPorts or Homebrew).
+
 ## Use cases
 
 ### Add an autocommit command to Git
