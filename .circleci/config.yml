@@ -15,7 +15,7 @@ jobs:
           name: Create slummed mirror of this branch
           command: |
             if [[ -n "$CIRCLE_BRANCH" ]]; then
-              git branch "slummed/$CIRCLE_BRANCH"
-              git filter-branch --commit-filter "$PWD/git-slum.sh" "slummed/$CIRCLE_BRANCH"
+              git checkout -b "slummed/$CIRCLE_BRANCH"
+              git filter-branch --commit-filter "$PWD/git-slum.sh"
               git push -f origin "slummed/$CIRCLE_BRANCH"
             fi
